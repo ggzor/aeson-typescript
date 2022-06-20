@@ -88,7 +88,7 @@ instance (TypeScript a, TypeScript b, TypeScript c, TypeScript d) => TypeScript 
                            ]
 
 instance (TypeScript a) => TypeScript (Maybe a) where
-  getTypeScriptType _ = getTypeScriptType (Proxy :: Proxy a)
+  getTypeScriptType _ = [i|(#{getTypeScriptType (Proxy :: Proxy a)} | null)|]
   getTypeScriptOptional _ = True
   getParentTypes _ = [TSType (Proxy :: Proxy a)]
 
